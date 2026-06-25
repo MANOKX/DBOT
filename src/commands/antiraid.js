@@ -7,8 +7,9 @@ module.exports = {
     .setDescription('Manage anti-raid protection')
     .addSubcommand(subcommand => subcommand.setName('enable').setDescription('Enable anti-raid'))
     .addSubcommand(subcommand => subcommand.setName('disable').setDescription('Disable anti-raid'))
-    .addSubcommand(subcommand => subcommand.setName('threshold').addIntegerOption(option => option.setName('amount').setDescription('Join threshold').setRequired(true)))
-    .addSubcommand(subcommand => subcommand.setName('window').addIntegerOption(option => option.setName('seconds').setDescription('Window size in seconds').setRequired(true)))
+    .addSubcommand(subcommand => subcommand.setName('threshold').setDescription('Set join threshold').addIntegerOption(option => option.setName('amount').setDescription('Join threshold').setRequired(true)))
+    .addSubcommand(subcommand => subcommand.setName('window').setDescription('Set window size').addIntegerOption(option => option.setName('seconds').setDescription('Window size in seconds').setRequired(true)))
+
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild),
   async execute(interaction) {
     const subcommand = interaction.options.getSubcommand();
