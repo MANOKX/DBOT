@@ -7,8 +7,9 @@ module.exports = {
     .setDescription('Manage anti-spam protection')
     .addSubcommand(subcommand => subcommand.setName('enable').setDescription('Enable anti-spam'))
     .addSubcommand(subcommand => subcommand.setName('disable').setDescription('Disable anti-spam'))
-    .addSubcommand(subcommand => subcommand.setName('limit').addIntegerOption(option => option.setName('amount').setDescription('Max messages').setRequired(true)))
-    .addSubcommand(subcommand => subcommand.setName('interval').addIntegerOption(option => option.setName('seconds').setDescription('Window in seconds').setRequired(true)))
+    .addSubcommand(subcommand => subcommand.setName('limit').setDescription('Set message limit').addIntegerOption(option => option.setName('amount').setDescription('Max messages').setRequired(true)))
+    .addSubcommand(subcommand => subcommand.setName('interval').setDescription('Set time interval').addIntegerOption(option => option.setName('seconds').setDescription('Window in seconds').setRequired(true)))
+
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild),
   async execute(interaction) {
     const subcommand = interaction.options.getSubcommand();

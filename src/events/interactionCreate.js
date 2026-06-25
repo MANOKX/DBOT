@@ -1,5 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 const Verification = require('../database/models/Verification');
+const GuildSettings = require('../database/models/GuildSettings');
+
 
 module.exports = {
   name: 'interactionCreate',
